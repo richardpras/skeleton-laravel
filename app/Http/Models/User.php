@@ -1,16 +1,16 @@
 <?php
 
-namespace App\Models;
-
-// use Illuminate\Contracts\Auth\MustVerifyEmail;
+namespace App\Http\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
-use Laravel\Sanctum\HasApiTokens;
+use Laravel\Passport\HasApiTokens;
 
 class User extends Authenticatable
 {
     use HasApiTokens, HasFactory, Notifiable;
+    const CREATED_AT = 'createdAt';
+    const UPDATED_AT = 'updatedAt';
 
     /**
      * The attributes that are mass assignable.
@@ -18,9 +18,15 @@ class User extends Authenticatable
      * @var array<int, string>
      */
     protected $fillable = [
-        'name',
+        'username',
         'email',
         'password',
+        'authTokenFB',
+        'authTokenGoogle',
+        'authKey',
+        'status',
+        'userType',
+        
     ];
 
     /**
@@ -40,6 +46,16 @@ class User extends Authenticatable
      */
     protected $casts = [
         'email_verified_at' => 'datetime',
-        'password' => 'hashed',
     ];
+    public static function showUser(){
+        return Auth();
+    }
+
+
+
+    public function search($request){
+        $query=$this::where('username','LIKE','%'.$request->name.'%');
+        
+        return $query->orderBy('username','asc');
+    }
 }
