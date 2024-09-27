@@ -4,9 +4,6 @@ namespace App\Http\Models\Auth;
 
 // use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
-use Illuminate\Database\Eloquent\Model;
-use Illuminate\Notifications\Notifiable;
-use Laravel\Passport\HasApiTokens;
 use Spatie\Permission\Models\Role as ModelsRole;
 
 class Role extends ModelsRole
@@ -43,9 +40,6 @@ class Role extends ModelsRole
         return true;
     }
 
-    public function functions(){
-        return $this->hasOne(Functions::class,'id','idFunction');
-    }
 
     public function getshowStatusAttribute()
     {

@@ -1,7 +1,8 @@
 <?php
 
-namespace Database\Factories;
+namespace Database\Factories\Http\Models;
 
+use App\Http\Models\User;
 use Illuminate\Database\Eloquent\Factories\Factory;
 use Illuminate\Support\Str;
 
@@ -15,14 +16,17 @@ class UserFactory extends Factory
      *
      * @return array<string, mixed>
      */
+    protected $model = User::class;
     public function definition(): array
     {
         return [
-            'name' => fake()->name(),
+            'username' => 'admin',
             'email' => fake()->unique()->safeEmail(),
             'email_verified_at' => now(),
-            'password' => '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', // password
+            'password' => '$2y$10$IWKlfHY6Lm/qH2xePDw.EOdnGrPu4oGWpJxfOrnROVEfFrbwgpQJy', // password
             'remember_token' => Str::random(10),
+            'access_rule' => 0,
+            'level' => 0,
         ];
     }
 

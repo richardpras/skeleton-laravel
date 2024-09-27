@@ -6,7 +6,7 @@ namespace App\Http\Models\Auth;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Role extends Model
+class Route extends Model
 {
     use HasFactory;
     const CREATED_AT = 'createdAt';
