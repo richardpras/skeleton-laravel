@@ -9,8 +9,6 @@ use Laravel\Passport\HasApiTokens;
 class User extends Authenticatable
 {
     use HasApiTokens, HasFactory, Notifiable;
-    const CREATED_AT = 'createdAt';
-    const UPDATED_AT = 'updatedAt';
 
     /**
      * The attributes that are mass assignable.

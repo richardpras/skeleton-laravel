@@ -9,8 +9,6 @@ use Spatie\Permission\Models\Role as ModelsRole;
 class Role extends ModelsRole
 {
     use HasFactory;
-    const CREATED_AT = 'createdAt';
-    const UPDATED_AT = 'updatedAt';
     protected $table="m_roles";
     /**
      * The attributes that are mass assignable.
@@ -22,8 +20,8 @@ class Role extends ModelsRole
         'guard_name',
         'name',
         'status',
-        'createdBy',
-        'updatedBy'
+        'created_by',
+        'updated_by'
     ];
 
     /**
@@ -32,8 +30,8 @@ class Role extends ModelsRole
      * @var array<int, string>
      */
     protected $hidden = [
-        'createdBy',
-        'updatedBy'
+        'created_by',
+        'updated_by'
     ];
 
     public static function checkUses(){

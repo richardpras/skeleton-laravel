@@ -9,8 +9,6 @@ use Illuminate\Database\Eloquent\Model;
 class AuthRule extends Model
 {
     use HasFactory;
-    const CREATED_AT = 'createdAt';
-    const UPDATED_AT = 'updatedAt';
     protected $table="auth_rule";
     /**
      * The attributes that are mass assignable.
@@ -20,8 +18,8 @@ class AuthRule extends Model
     protected $fillable = [
         'name',
         'data',
-        'createdBy',
-        'updatedBy'
+        'created_by',
+        'updated_by'
     ];
 
     /**
@@ -30,7 +28,7 @@ class AuthRule extends Model
      * @var array<int, string>
      */
     protected $hidden = [
-        'createdBy',
-        'updatedBy'
+        'created_by',
+        'updated_by'
     ];
 }

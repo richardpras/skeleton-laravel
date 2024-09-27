@@ -9,8 +9,6 @@ use Illuminate\Database\Eloquent\Model;
 class Route extends Model
 {
     use HasFactory;
-    const CREATED_AT = 'createdAt';
-    const UPDATED_AT = 'updatedAt';
     protected $table="m_roles";
     /**
      * The attributes that are mass assignable.
@@ -22,8 +20,8 @@ class Route extends Model
         'guard_name',
         'name',
         'status',
-        'createdBy',
-        'updatedBy'
+        'created_by',
+        'updated_by'
     ];
 
     /**
@@ -32,8 +30,8 @@ class Route extends Model
      * @var array<int, string>
      */
     protected $hidden = [
-        'createdBy',
-        'updatedBy'
+        'created_by',
+        'updated_by'
     ];
 
 

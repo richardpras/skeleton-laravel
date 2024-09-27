@@ -9,8 +9,6 @@ use Illuminate\Database\Eloquent\Model;
 class AuthItem extends Model
 {
     use HasFactory;
-    const CREATED_AT = 'createdAt';
-    const UPDATED_AT = 'updatedAt';
     protected $table="auth_item";
     protected $keyType = 'string';
     protected $primaryKey = 'name';
@@ -26,8 +24,8 @@ class AuthItem extends Model
         'description',
         'rule_name',
         'data',
-        'createdBy',
-        'updatedBy'
+        'created_by',
+        'updated_by'
     ];
 
     /**
@@ -36,8 +34,8 @@ class AuthItem extends Model
      * @var array<int, string>
      */
     protected $hidden = [
-        'createdBy',
-        'updatedBy'
+        'created_by',
+        'updated_by'
     ];
 
     public function itemChild(){

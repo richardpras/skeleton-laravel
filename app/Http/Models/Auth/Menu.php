@@ -11,8 +11,6 @@ use Laravel\Passport\HasApiTokens;
 class Menu extends Model
 {
     use HasFactory;
-    const CREATED_AT = 'createdAt';
-    const UPDATED_AT = 'updatedAt';
     protected $table="m_menus";
     /**
      * The attributes that are mass assignable.
@@ -22,8 +20,8 @@ class Menu extends Model
     protected $fillable = [
         'name',
         'status',
-        'createdBy',
-        'updatedBy'
+        'created_by',
+        'updated_by'
     ];
 
     /**
@@ -32,8 +30,8 @@ class Menu extends Model
      * @var array<int, string>
      */
     protected $hidden = [
-        'createdBy',
-        'updatedBy'
+        'created_by',
+        'updated_by'
     ];
     public static function checkUses(){
         return true;

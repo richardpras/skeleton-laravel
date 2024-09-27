@@ -13,8 +13,6 @@ use Laravel\Passport\HasApiTokens;
 class AuthAssignment extends Model
 {
     use HasFactory;
-    const CREATED_AT = 'createdAt';
-    const UPDATED_AT = 'updatedAt';
     protected $table="auth_assignment";
     protected $keyType = 'string';
     /**
@@ -26,8 +24,8 @@ class AuthAssignment extends Model
         'item_name',
         'user_id',
         'status',
-        'createdBy',
-        'updatedBy'
+        'created_by',
+        'updated_by'
     ];
 
     /**
@@ -36,8 +34,8 @@ class AuthAssignment extends Model
      * @var array<int, string>
      */
     protected $hidden = [
-        'createdBy',
-        'updatedBy'
+        'created_by',
+        'updated_by'
     ];
 
     public static function checkUses(){
