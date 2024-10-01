@@ -58,18 +58,15 @@ class AuthController extends Controller
     }else{
         $user = Auth::user();
         $token = $user->createToken('auth_token');
-        $model=new AuthResource($user);
         if ($request->remember_me){
-            return $this->sendResponse([
+            return [
               'expires_at'=> date('Y-m-d H:i:s',strtotime($token->token->expires_at)),
-              'accessToken' =>$token->accessToken ,
-              'user'=>$model,
-          ], 'login user.');
+              'accessToken' =>$token->accessToken 
+            ];
         }
-        return $this->sendResponse([
-          'user'=>$model,
-          'accessToken' =>$token->accessToken ,
-        ], 'login user.');
+        return [
+          'accessToken' =>$token->accessToken
+        ];
     }
    
   }
@@ -77,8 +74,7 @@ class AuthController extends Controller
   public function user(Request $request)
   {
     $model=User::where('id',Auth::id())->first();
-    $model=new AuthResource($model);
-    return $this->sendResponse($model, 'Details user.');
+    return $this->sendResponse(new AuthResource($model), 'Details user.');
   }
 
   public function logout(Request $request)
